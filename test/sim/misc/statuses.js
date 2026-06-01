@@ -177,6 +177,82 @@ describe('Paralysis', () => {
 	});
 });
 
+describe('Bad Burn', () => {
+	afterEach(() => {
+		battle.destroy();
+	});
+
+	it('should inflict 1/16 of max HP rounded down, times the number of active turns with the status, at the end of the turn', () => {
+		battle = common.createBattle([[
+			{ species: 'Chansey', ability: 'naturalcure', moves: ['softboiled'] },
+		], [
+			{ species: 'Blottle-Fumage', ability: 'monoxide', moves: ['carbonplume'] },
+		]]);
+		const target = battle.p1.active[0];
+		for (let i = 1; i <= 8; i++) {
+			battle.makeChoices('move softboiled', 'move toxic');
+			assert.equal(target.maxhp - target.hp, Math.floor(target.maxhp / 16) * i);
+		}
+	});
+
+	it(`should halve damage from most Physical attacks`, () => {
+		battle = common.createBattle([[
+			{ species: 'Machamp', ability: 'noguard', moves: ['boneclub'] },
+		], [
+			{ species: 'Blottle-Fumage', ability: 'monoxide', moves: ['carbonplume'] },
+		]]);
+		battle.makeChoices();
+		const sableye = battle.p2.active[0];
+		const damage = sableye.maxhp - sableye.hp;
+		assert.bounded(damage, [37, 44]);
+	});
+
+	it(`should halve damage after fainting`, () => {
+		battle = common.gen(4).createBattle([[
+			{ species: 'Electrode', ability: 'noguard', moves: ['explosion'] },
+		], [
+			{ species: 'Wailord', ability: 'prankster', moves: ['willowisp'] },
+		]]);
+		battle.makeChoices();
+		const wailord = battle.p2.active[0];
+		assert.bounded(wailord.hp, [200, 300]);
+	});
+
+	it('should reduce atk to 50% of its original value in Stadium', () => {
+		// I know WoW doesn't exist in Stadium, but the engine supports future gen moves
+		// and this is easier than digging for a seed that makes Flamethrower burn
+		battle = common.createBattle({ formatid: 'gen1stadiumou@@@!teampreview' }, [[
+			{ species: 'Vaporeon', moves: ['growl'] },
+		], [
+			{ species: 'Jolteon', moves: ['willowisp'] },
+		]]);
+		const attack = battle.p1.active[0].getStat('atk');
+		battle.makeChoices('move growl', 'move willowisp');
+		assert.equal(battle.p1.active[0].getStat('atk'), Math.floor(attack * 0.5));
+	});
+
+	it('should not halve damage from moves with set damage', () => {
+		battle = common.createBattle([[
+			{ species: 'Machamp', ability: 'noguard', moves: ['seismictoss'] },
+		], [
+			{ species: 'Talonflame', ability: 'galewings', moves: ['willowisp'] },
+		]]);
+		assert.hurtsBy(battle.p2.active[0], 100, () => battle.makeChoices('move seismictoss', 'move willowisp'));
+	});
+
+	describe(`[Gen 6]`, () => {
+		it('should inflict 1/8 of max HP at the end of the turn, rounded down', () => {
+			battle = common.gen(6).createBattle([[
+				{ species: 'Machamp', ability: 'noguard', moves: ['bulkup'] },
+			], [
+				{ species: 'Sableye', ability: 'prankster', moves: ['willowisp'] },
+			]]);
+			const target = battle.p1.active[0];
+			assert.hurtsBy(target, Math.floor(target.maxhp / 8), () => battle.makeChoices('move bulkup', 'move willowisp'));
+		});
+	});
+});
+
 describe('Toxic Poison', () => {
 	afterEach(() => {
 		battle.destroy();
