@@ -1053,6 +1053,11 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 
 		start: "  [POKEMON] breaks the mold!",
 	},
+	monoxide: {
+		name: "Monoxide",
+		desc: "Fire type moves gain 10% Chance to lower target's accuracy by 1 and a 10% chance to inflict the Badly Burnt status effect. Also grants immunity to Fighting type moves, lowering the attacking Pokemon's accuracy by 1 stage",
+		shortDesc: "Causes various problems when a Pokemon tries to attack it, and power up it's Fire moves.",
+	},
 	moody: {
 		name: "Moody",
 		desc: "This Pokemon has a random stat, other than accuracy or evasiveness, raised by 2 stages and another stat lowered by 1 stage at the end of each turn.",
