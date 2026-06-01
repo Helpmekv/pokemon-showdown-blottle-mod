@@ -36,7 +36,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	noability: {
 		isNonstandard: "Past",
 		flags: {},
-		name: "No Ability",
+		name: "Placeholder Ability",
 		rating: 0.1,
 		num: 0,
 	},
@@ -5618,6 +5618,62 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Mountaineer",
 		rating: 3,
 		num: -1,
+	},
+	monoxide: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				this.boost({ accuracy: -1 }, source, target, null, true);
+					this.add('-immune', target, '[from] ability: Monoxide');
+				}
+				return null;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(1, 10)) {
+					source.trySetStatus('sco', target);
+				}
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (move.type === 'Fire') {
+				if (this.randomChance(1, 10)) {
+					this.boost({ accuracy: -1 }, source, target, null, true);
+			}
+		},
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (move.type === 'Fire') {
+				if (this.randomChance(1, 10)) {
+					source.trySetStatus('sco', target);
+			}
+		},
+		flags: {}, //Thank god for existing code because this might just be the hardest thing I've ever done holy shit lmao
+		name: "Monoxide",
+		rating: 5,
+		num: 1000,
+	},
+	sculpter: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Rock') {
+				this.debug('Dragon\'s Maw boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Dragon\'s Maw boost');
+				return this.chainModify(2);
+			}
+		}, //Thank god for existing code because this might just be the hardest thing I've ever done holy shit
+		flags: {},
+		name: "Sculpter",
+		rating: 3.5,
+		num: 8989898,
 	},
 	rebound: {
 		isNonstandard: "CAP",
