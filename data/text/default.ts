@@ -2,7 +2,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 	default: {
 		startBattle: "Battle started between [TRAINER] and [TRAINER]!",
 		winBattle: "**[TRAINER]** won the battle!",
-		tieBattle: "Tie between [TRAINER] and [TRAINER]!",
+		tieBattle: "A tie has been declared between [TRAINER] and [TRAINER]!",
 
 		pokemon: "[NICKNAME]",
 		opposingPokemon: "the opposing [NICKNAME]",
@@ -41,16 +41,16 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		// in case the different default messages didn't make it obvious, the difference
 		// is that the `cant` message REPLACES "Pokemon used Move!", while the `fail`
 		// message happens AFTER "Pokemon used Move!"
-		cant: "[POKEMON] can't use [MOVE]!",
-		cantNoMove: "[POKEMON] can't move!",
-		fail: "  But it failed!",
+		cant: "[POKEMON] cannott use [MOVE]!",
+		cantNoMove: "[POKEMON] is kinda disabled...",
+		fail: "[POKEMON]'s move failed.",
 
 		// n.b. this is the default message for in-battle forme changes
 		// for the move Transform and ability Imposter, see the entry for the move Transform
 		transform: "[POKEMON] transformed!",
 		typeChange: "  [POKEMON]'s type changed to [TYPE]!",
 		typeChangeFromEffect: "  [POKEMON]'s [EFFECT] made it the [TYPE] type!",
-		typeAdd: "  [TYPE] type was added to [POKEMON]!",
+		typeAdd: "  [TYPE] type was given to [POKEMON]!",
 
 		start: "  ([EFFECT] started on [POKEMON]!)",
 		end: "  [POKEMON] was freed from [EFFECT]!",
@@ -79,57 +79,72 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		healFromZEffect: "  [POKEMON] restored its HP using its Z-Power!",
 		healFromEffect: "  [POKEMON] restored HP using its [EFFECT]!",
 
-		boost: "  [POKEMON]'s [STAT] rose!",
-		boost2: "  [POKEMON]'s [STAT] rose sharply!",
-		boost3: "  [POKEMON]'s [STAT] rose drastically!",
-		boost0: "  [POKEMON]'s [STAT] won't go any higher!",
-		boostFromItem: "  The [ITEM] raised [POKEMON]'s [STAT]!",
-		boost2FromItem: "  The [ITEM] sharply raised [POKEMON]'s [STAT]!",
-		boost3FromItem: "  The [ITEM] drastically raised [POKEMON]'s [STAT]!",
-		boostFromZEffect: "  [POKEMON] boosted its [STAT] using its Z-Power!",
-		boost2FromZEffect: "  [POKEMON] boosted its [STAT] sharply using its Z-Power!",
-		boost3FromZEffect: "  [POKEMON] boosted its [STAT] drastically using its Z-Power!",
-		boostMultipleFromZEffect: "  [POKEMON] boosted its stats using its Z-Power!",
+		boost: "  [POKEMON]'s [STAT] rose by 1 stage!",
+		boost2: "  [POKEMON]'s [STAT] rose heavily!",
+		boost3: "  [POKEMON]'s [STAT] rose intensely!",
+		boost4: "  [POKEMON]'s [STAT] rose drastically!",
+		boost5: "  [POKEMON]'s [STAT] rose astronomically!",
+		boost6: "  [POKEMON]'s [STAT] was maxed out in one move!",
+		boost0: "  [POKEMON]'s [STAT] is unable to go any higher!",
+		boostFromItem: "  The [ITEM] increased [POKEMON]'s [STAT] by 1!",
+		boost2FromItem: "  The [ITEM] heavily raised [POKEMON]'s [STAT]!",
+		boost3FromItem: "  The [ITEM] intensely raised [POKEMON]'s [STAT]!",
+		boost4FromItem: "  The [ITEM] drastically raised [POKEMON]'s [STAT]!",
+		boost5FromItem: "  The [ITEM] astronomically raised [POKEMON]'s [STAT]!",
+		boost6FromItem: "  The [ITEM] maxed out [POKEMON]'s [STAT] at once!",
+		boostFromZEffect: "  [POKEMON] boosted its [STAT] by 1 stage using its Z-Power!",
+		boost2FromZEffect: "  [POKEMON] boosted its [STAT] heavily using its Z-Power!",
+		boost3FromZEffect: "  [POKEMON] boosted its [STAT] intensely using its Z-Power!",
+		boost4FromZEffect: "  [POKEMON] boosted its [STAT] drastically using its Z-Power!",
+		boost5FromZEffect: "  [POKEMON] boosted its [STAT] astronomically using its Z-Power!",
+		boost6FromZEffect: "  [POKEMON] maxed out its [STAT] all the way using its Z-Power!",
+		boostMultipleFromZEffect: "  [POKEMON] boosted multiple stats using its Z-Power!",
 
 		unboost: "  [POKEMON]'s [STAT] fell!",
-		unboost2: "  [POKEMON]'s [STAT] fell harshly!",
-		unboost3: "  [POKEMON]'s [STAT] fell severely!",
-		unboost0: "  [POKEMON]'s [STAT] won't go any lower!",
-		unboostFromItem: "  The [ITEM] lowered [POKEMON]'s [STAT]!",
-		unboost2FromItem: "  The [ITEM] harshly lowered [POKEMON]'s [STAT]!",
-		unboost3FromItem: "  The [ITEM] drastically lowered [POKEMON]'s [STAT]!",
+		unboost2: "  [POKEMON]'s [STAT] was nerfed harshly!",
+		unboost3: "  [POKEMON]'s [STAT] was nerfed severely!",
+		unboost4: "  [POKEMON]'s [STAT] was nerfed intensely!",
+		unboost5: "  [POKEMON]'s [STAT] was nerfed drastically!",
+		unboost6: "  [POKEMON]'s [STAT] stat was nearly erased...",
+		unboost0: "  [POKEMON]'s [STAT] won't go any lower..!",
+		unboostFromItem: "  The [ITEM] nerfed [POKEMON]'s [STAT]!",
+		unboost2FromItem: "  The [ITEM] harshly nerfed [POKEMON]'s [STAT]!",
+		unboost3FromItem: "  The [ITEM] severely nerfed [POKEMON]'s [STAT]!",
+		unboost4FromItem: "  The [ITEM] intensely nerfed [POKEMON]'s [STAT]!",
+		unboost5FromItem: "  The [ITEM] drastically nerfed [POKEMON]'s [STAT]!",
+		unboost6FromItem: "  The [ITEM] nearly erased [POKEMON]'s [STAT]...",
 
 		swapBoost: "  [POKEMON] switched stat changes with its target!",
 		swapOffensiveBoost: "  [POKEMON] switched all changes to its Attack and Sp. Atk with its target!",
 		swapDefensiveBoost: "  [POKEMON] switched all changes to its Defense and Sp. Def with its target!",
 		copyBoost: "  [POKEMON] copied [TARGET]'s stat changes!",
-		clearBoost: "  [POKEMON]'s stat changes were removed!",
+		clearBoost: "  [POKEMON]'s stat changes were removed completely!",
 		clearBoostFromZEffect: "  [POKEMON] returned its decreased stats to normal using its Z-Power!",
 		invertBoost: "  [POKEMON]'s stat changes were inverted!",
-		clearAllBoost: "  All stat changes were eliminated!",
+		clearAllBoost: "  The stat changes of all active Pokemon were removed!",
 
 		superEffective: "  It's super effective!",
 		superEffectiveSpread: "  It's super effective on [POKEMON]!",
 		resisted: "  It's not very effective...",
 		resistedSpread: "  It's not very effective on [POKEMON].",
-		extremelyEffective: "  It's extremely effective!",
-		extremelyEffectiveSpread: "  It's extremely effective on [POKEMON]!",
-		mostlyIneffective: "  It's mostly ineffective...",
+		extremelyEffective: "  The move pierced the target's very soul!",
+		extremelyEffectiveSpread: "  The move pierced the opposing [POKEMON]'s very soul!",
+		mostlyIneffective: "  The move did almost nothing...",
 		mostlyIneffectiveSpread: "  It's mostly ineffective on [POKEMON].",
-		crit: "  A critical hit!",
-		critSpread: "  A critical hit on [POKEMON]!",
-		immune: "  It doesn't affect [POKEMON]...",
-		immuneNoPokemon: "  It had no effect!", // old gens
-		immuneOHKO: "  [POKEMON] is unaffected!",
+		crit: "  THE MOVE CRITICALLY STRUCK!",
+		critSpread: "  [POKEMON] WAS CRITICALLY STRUCK",
+		immune: "  [POKEMON] took no damage?!?!",
+		immuneNoPokemon: "  It did nothing?!?!", // old gens
+		immuneOHKO: "  [POKEMON] managed to dodge the move just in time!",
 		miss: "  [POKEMON] avoided the attack!",
 		missNoPokemon: "  [SOURCE]'s attack missed!", // old gens
 
 		center: "  Automatic center!",
-		noTarget: "  But there was no target...", // gen 5 and earlier
-		ohko: "  It's a one-hit KO!",
+		noTarget: "  There is nothing to hit...", // gen 5 and earlier
+		ohko: "  The move induced a fatal wound...",
 		combine: "  The two moves have become one! It's a combined move!",
-		hitCount: "  The Pok\u00E9mon was hit [NUMBER] times!",
-		hitCountSingular: "  The Pok\u00E9mon was hit 1 time!",
+		hitCount: "  The Pok\u00E9mon was bashed [NUMBER] times!",
+		hitCountSingular: "  The Pok\u00E9mon was attacked only once!",
 	},
 
 	// stats
@@ -180,13 +195,21 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		endFromItem: "  [POKEMON]'s [ITEM] healed its burn!",
 		damage: "  [POKEMON] was hurt by its burn!",
 	},
+	sco: {
+		start: "  [POKEMON] was badly burnt!",
+		startFromItem: "  [POKEMON] was scorched severely by the [ITEM]!",
+		alreadyStarted: "  [POKEMON] is already badly burnt!",
+		end: "  [POKEMON]'s bad burn was healed!",
+		endFromItem: "  [POKEMON]'s [ITEM] healed its bad burn!",
+		damage: "  [POKEMON] was hurt by its burn!",
+	},
 	frz: {
 		start: "  [POKEMON] was frozen solid!",
 		alreadyStarted: "  [POKEMON] is already frozen solid!",
 		end: "  [POKEMON] thawed out!",
 		endFromItem: "  [POKEMON]'s [ITEM] defrosted it!",
 		endFromMove: "  [POKEMON]'s [MOVE] melted the ice!",
-		cant: "[POKEMON] is frozen solid!",
+		cant: "[POKEMON] is frozen solid! It can't move!",
 	},
 	par: {
 		start: "  [POKEMON] is paralyzed! It may be unable to move!",
@@ -203,17 +226,17 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		damage: "  [POKEMON] was hurt by poison!",
 	},
 	tox: {
-		start: "  [POKEMON] was badly poisoned!",
-		startFromItem: "  [POKEMON] was badly poisoned by the [ITEM]!",
-		end: "#psn",
-		endFromItem: "#psn",
+		start: "  [POKEMON] was fatally poisoned!",
+		startFromItem: "  [POKEMON] was fatally poisoned by the [ITEM]!",
+		end: "  [POKEMON]'s fatal poison was miraculously cured!",
+		endFromItem: "  [POKEMON]'s item miraculously cured it of it's fatal poison!",
 		alreadyStarted: "#psn",
-		damage: "#psn",
+		damage: "  [POKEMON]'s condition is worsening by the second!",
 	},
 	slp: {
 		start: "  [POKEMON] fell asleep!",
-		startFromRest: "  [POKEMON] slept and became healthy!",
-		alreadyStarted: "  [POKEMON] is already asleep!",
+		startFromRest: "  [POKEMON] fell asleep, healing it's injuries!",
+		alreadyStarted: "  [POKEMON] is currently asleep",
 		end: "  [POKEMON] woke up!",
 		endFromItem: "  [POKEMON]'s [ITEM] woke it up!",
 		cant: "[POKEMON] is fast asleep.",
@@ -229,6 +252,15 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		activate: "  [POKEMON] is confused!",
 		damage: "It hurt itself in its confusion!",
 	},
+	suicidal: {
+		start: "  [POKEMON] *^^@*^*&#^@#*^#",
+		startFromFatigue: "  [POKEMON] *^^@*^*&#^@#*^# due to fatigue!",
+		end: "  [POKEMON] regained it's will to live!",
+		endFromItem: "  [POKEMON]'s [ITEM] cured the effects of &^&^*&^*&^*^&#@*^!",
+		alreadyStarted: "  [POKEMON] is already ^&*^&*^&^&*^&^*@^&*&^*&^*&^^%^%$^!",
+		activate: "  [POKEMON] lost it's will to live...",
+		damage: "IT^^KILLED@&ITSELF?@????!?!&!%@$^%&%%&%&^%&^%&^%^&%^&%#@^*#^@&*^@&*#^*&@&^#&*@^*#&@^&*^@*&^#*@&^#&@#",
+	},
 	drain: {
 		heal: "  [SOURCE] had its energy drained!",
 	},
@@ -236,7 +268,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		cant: "[POKEMON] flinched and couldn't move!",
 	},
 	heal: {
-		fail: "  [POKEMON]'s HP is full!",
+		fail: "  [POKEMON]'s HP is already full!",
 	},
 	healreplacement: {
 		activate: "  [POKEMON] will restore its replacement's HP using its Z-Power!",
@@ -245,20 +277,20 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		cant: "[POKEMON] used [MOVE]!\n  But there was no PP left for the move!",
 	},
 	recharge: {
-		cant: "[POKEMON] must recharge!",
+		cant: "[POKEMON] must recover from their intensely powerful move!",
 	},
 	recoil: {
-		damage: "  [POKEMON] was damaged by the recoil!",
+		damage: "  [POKEMON] hurt itself from the!",
 	},
 	unboost: {
 		fail: "  [POKEMON]'s stats were not lowered!",
 		failSingular: "  [POKEMON]'s [STAT] was not lowered!",
 	},
 	struggle: {
-		activate: "  [POKEMON] has no moves left!",
+		activate: "  [POKEMON] cannot use any more moves!",
 	},
 	trapped: {
-		start: "  [POKEMON] can no longer escape!",
+		start: "  [POKEMON] was chained to the battlefield!",
 	},
 	dynamax: {
 		start: "  ([POKEMON]'s Dynamax!)",
@@ -300,6 +332,13 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		end: "  The snow stopped.",
 		upkeep: "  (The snow is falling down.)",
 	},
+	malevolentshrine: {
+		weatherName: "Domain Expansion: Malevolent Shrine",
+		start: "  Malevolent Shrine has taken effect! Slashes are cutting deep into active Poku\u00E9mon!",
+		end: "  The hail stopped.",
+		upkeep: "  (The Slashes are still cutting deep)",
+		damage: "  [POKEMON] has been heavily wounded by countless slashes!",
+	},
 	desolateland: {
 		weatherName: "Intense Sun",
 		start: "  The sunlight turned extremely harsh!",
@@ -320,6 +359,13 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		end: "  The mysterious strong winds have dissipated!",
 		activate: "  The mysterious strong winds weakened the attack!",
 		block: "  The mysterious strong winds blow on regardless!",
+	},
+	void: {
+		weatherName: "Summoned Void",
+		start: "  A pure black (*&@#(*&#(@&missing_void####*&# has been summoned?!",
+		end: "  The ^^*&(&@@)missing_void)@)#(#&*@(& disappeared?!",
+		block: "  block_alert?!?!",
+		blockMove: "  blockMove_alert?!?!",
 	},
 
 	// terrain
@@ -346,34 +392,34 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 
 	// field effects
 	gravity: {
-		start: "  Gravity intensified!",
+		start: "  The force of gravity has intensified!",
 		end: "  Gravity returned to normal!",
-		cant: "[POKEMON] can't use [MOVE] because of gravity!",
-		activate: "[POKEMON] fell from the sky due to the gravity!",
+		cant: "[POKEMON] is anchored to the ground by the intense gravitational pull, making it unable to use [MOVE]...",
+		activate: "[POKEMON] plummeted to the ground because of the gravity's increase!",
 	},
 	magicroom: {
-		start: "  It created a bizarre area in which Pok\u00E9mon's held items lose their effects!",
+		start: "  All Pok\u00E9mon have become too confused to use their held items!",
 		end: "  Magic Room wore off, and held items' effects returned to normal!",
 	},
 	mudsport: {
-		start: "  Electricity's power was weakened!",
+		start: "  Electricity's power is fizzling out!",
 		end: "  The effects of Mud Sport have faded.",
 	},
 	trickroom: {
-		start: "  [POKEMON] twisted the dimensions!",
-		end: "  The twisted dimensions returned to normal!",
+		start: "  [POKEMON] distorted reality!",
+		end: "  The dimensions untwisted!",
 	},
 	watersport: {
-		start: "  Fire's power was weakened!",
+		start: "  Fire attacks are being extingueshed!",
 		end: "  The effects of Water Sport have faded.",
 	},
 	wonderroom: {
-		start: "  It created a bizarre area in which Defense and Sp. Def stats are swapped!",
-		end: "  Wonder Room wore off, and Defense and Sp. Def stats returned to normal!",
+		start: "  ???",
+		end: "  Wonder Room's effect has ended",
 	},
 
 	// misc
 	crash: {
-		damage: "  [POKEMON] kept going and crashed!",
+		damage: "  [POKEMON] was reckless and collided, taking the move's recoil!",
 	},
 };
