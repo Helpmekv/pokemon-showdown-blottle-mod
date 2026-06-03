@@ -2202,6 +2202,26 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: { boost: { spd: 2 } },
 		contestType: "Cute",
 	},
+	carbonplume: {
+		num: 1100,
+		accuracy: 60,
+		basePower: 115,
+		category: "Special",
+		name: "Carbon Plume",
+		pp: 8,
+		priority: 1,
+		flags: { protect: 0, mirror: 1, metronome: 1 },
+		secondary: {
+			chance: 100,
+			boosts: {
+				self: {
+					evasion: 1,
+			},
+		},
+		target: "normal",
+		type: "Fire",
+		contestType: "Beautiful",
+	},
 	catastropika: {
 		num: 658,
 		accuracy: true,
@@ -14335,7 +14355,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			let power = 60 + 20 * target.positiveBoosts();
 			if (power > 200) power = 200;
 			this.debug(`BP: ${power}`);
-			return power;
+			return power;w
 		},
 		category: "Physical",
 		isNonstandard: "Past",
@@ -14348,6 +14368,24 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: { basePower: 160 },
 		maxMove: { basePower: 130 },
 		contestType: "Cool",
+	},
+	puppetocalypse: {
+		num: 1101,
+		accuracy: 85,
+		basePower: 10,
+		category: "Physical",
+		name: "Puppetocalypse",
+		pp: 8,
+		priority: 1,
+		flags: { contact: 1 },
+		multihit: 20,
+		multiaccuracy: true,
+		secondary: {
+			chance: 5,
+			volatileStatus: 'confusion',
+		},
+		target: "normal",
+		type: "Fighting",
 	},
 	purify: {
 		num: 685,
